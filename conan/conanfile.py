@@ -20,20 +20,11 @@ class Damn(ConanFile):
         self.requires("fmt/11.0.2")
         self.requires("libdatachannel/0.22.2")
 
-    def source(self):
-        # Check that we can see that the CMakeLists.txt is inside the source folder
-        cmake_file = load(self, "CMakeLists.txt")
-
     def layout(self):
         self.folders.root = ".." 
         cmake_layout(self, "Ninja")
-
     
     def build(self):
-        # Check that the build() method can also access the CMakeLists.txt in the source folder
-        path = os.path.join(self.source_folder, "CMakeLists.txt")
-        cmake_file = load(self, path)
-
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
