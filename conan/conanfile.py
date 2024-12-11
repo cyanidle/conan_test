@@ -25,11 +25,9 @@ class Damn(ConanFile):
         cmake_file = load(self, "CMakeLists.txt")
 
     def layout(self):
+        cmake_layout(self)
         # The root of the project is one level above
         self.folders.root = ".." 
-        # The source of the project (the root CMakeLists.txt) is the source folder
-        self.folders.source = "."  
-        self.folders.build = "build"
 
     
     def build(self):
