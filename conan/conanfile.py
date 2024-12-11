@@ -12,7 +12,7 @@ class Damn(ConanFile):
     def export_sources(self):
         # The path of the CMakeLists.txt and sources we want to export are one level above
         folder = os.path.join(self.recipe_folder, "..")
-        copy(self, "*.txt", folder, self.export_sources_folder)
+        copy(self, "CMakeLists.txt", folder, self.export_sources_folder)
         copy(self, "src/*.cpp", folder, self.export_sources_folder)
         copy(self, "include/*.hpp", folder, self.export_sources_folder)
 
