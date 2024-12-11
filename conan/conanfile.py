@@ -25,9 +25,8 @@ class Damn(ConanFile):
         cmake_file = load(self, "CMakeLists.txt")
 
     def layout(self):
-        cmake_layout(self)
-        # The root of the project is one level above
         self.folders.root = ".." 
+        cmake_layout(self, "Ninja")
 
     
     def build(self):
